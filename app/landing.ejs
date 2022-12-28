@@ -26,6 +26,28 @@
                                 <div id="settingsTooltip">Settings</div>
                             </button>
                         </div>
+                        <div class="mediaContainer" id="settingsMediaContainer">
+                            <button class="mediaButton" id="refreshMediaButton">
+                                <svg id="refreshSVG" class="mediaSVG" viewBox="0 0 515.556 515.556">
+                                    <path d="m418.889 290c0 88.832-72.28 161.111-161.111 161.111s-161.111-72.279-161.111-161.111c0-77.798 55.445-142.882 128.889-157.855v61.188l96.667-96.667-96.667-96.666v67.017c-109.124 15.718-193.334 109.578-193.334 222.983 0 124.373 101.182 225.556 225.556 225.556s225.556-101.182 225.556-225.556z" id="svg_4" class=""/>
+                                </svg>
+                            </button>
+                            <div id="mediaSVGTooltip">Refresh Launcher</div>
+                        </div>
+                        <div class="mediaContainer" id="settingsMediaContainer">
+                            <button class="mediaButton" id="openInstanceMediaButton">
+                                <svg id="openInstanceSVG" class="mediaSVG" viewBox="0 0 198.084 198.084">
+                                    <g>
+                                        <path d="M197.951,77.097l-16.024,78.532c-1.222,5.987-6.488,10.288-12.599,10.288H20.196c-8.135,0-14.225-7.459-12.599-15.429
+	L21.94,80.197c1.29-6.32,6.849-10.859,13.299-10.859h150.14h6.237c3.068,0,5.558,2.11,6.266,4.856
+	C198.117,75.109,198.155,76.094,197.951,77.097z M12.142,78.198c2.23-10.928,11.943-18.86,23.097-18.86h150.076
+	c-0.6-5.713-5.444-10.181-11.314-10.181H94.819c-1.605-9.628-9.995-16.989-20.07-16.989H13.35C5.989,32.167,0,38.156,0,45.517
+	v92.186L12.142,78.198z"/>
+                                    </g>
+                                </svg>
+                            </button>
+                            <div id="mediaSVGTooltip">Open Modpack Folder</div>
+                        </div>
                     </div>
                     <div class="mediaDivider"></div>
                     <div id="externalMedia">
@@ -97,26 +119,7 @@
                 <div id="content">
                     <div id="server_status_wrapper">
                         <span class="bot_label" id="landingPlayerLabel">SERVER</span>
-                        <span id="player_count">OFFLINE</span>
-                    </div>
-                    <div class="bot_divider"></div>
-                    <div id="mojangStatusWrapper">
-                        <span class="bot_label">MOJANG STATUS</span>
-                        <span id="mojang_status_icon">&#8226;</span>
-                        <div id="mojangStatusTooltip">
-                            <div id="mojangStatusTooltipTitle">Services</div>
-                            <div id="mojangStatusEssentialContainer">
-                                <!-- Essential Mojang services are populated here. -->
-                            </div>
-                            <div id="mojangStatusNEContainer">
-                                <div class="mojangStatusNEBar"></div>
-                                <div id="mojangStatusNETitle">Non&nbsp;Essential</div>
-                                <div class="mojangStatusNEBar"></div>
-                            </div>
-                            <div id="mojangStatusNonEssentialContainer">
-                                <!-- Non Essential Mojang services are populated here. -->
-                            </div>
-                        </div>
+                        <span class="player_count" id="player_count">OFFLINE</span>
                     </div>
                 </div>
             </div>

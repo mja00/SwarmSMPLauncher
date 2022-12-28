@@ -116,6 +116,43 @@ document.getElementById('settingsMediaButton').onclick = (e) => {
     switchView(getCurrentView(), VIEWS.settings)
 }
 
+// Bind modpack button
+document.getElementById('openInstanceMediaButton').onclick = (e) => {
+    if (ConfigManager.getSelectedServer()) {
+        shell.openPath(path.join(ConfigManager.getDataDirectory(), 'instances', ConfigManager.getSelectedServer()))
+    } else {
+        shell.openPath(path.join(ConfigManager.getDataDirectory(), 'instances'))
+    }
+}
+
+document.getElementById('refreshMediaButton').onclick = (e) => {
+    DistroManager.pullRemote().then((data) => {
+        onDistroRefresh(data)
+        showMainUI(data)
+        setOverlayContent(
+            'Launcher Refreshed!',
+            'This is a confirmation letting you know that you have manually refreshed your launcher, your server list is now up to date and should be good to go! If you have any problems please do let us know!',
+            'Great! Thank you.',
+            'Join our Discord'
+        )
+    }).catch(err => {
+        setOverlayContent(
+            'Error Refreshing Distribution',
+            'We were unable to grab the latest server information from the internet upon startup, so we have used a previously stored version instead.<br><br>This is not recommended, and you should restart your client to fix this to avoid your modpack files being out of date. If you wish to continue using the launcher, you can try again at any time by pressing the refresh button on the landing screen.<br><br>If this continues to occur, and you are not too sure why, come and see us on Discord!<br><br>Error Code:<br>' + err,
+            'Understood.',
+            'Join our Discord'
+        )
+    }).finally(() => {
+        setOverlayHandler(() => {
+            toggleOverlay(false)
+        })
+        setDismissHandler(() => {
+            shell.openExternal('https://discord.gg/ckgKA4r8jJ')
+        })
+        toggleOverlay(true, true)
+    })
+}
+
 // Bind avatar overlay button.
 document.getElementById('avatarOverlay').onclick = (e) => {
     prepareSettings()
@@ -232,7 +269,7 @@ const refreshServerStatus = async function(fade = false){
 
         const servStat = await getServerStatus(47, serverURL.hostname, Number(serverURL.port))
         console.log(servStat)
-        pLabel = 'PLAYERS'
+        pLabel = 'PLAYERS ONLINE'
         pVal = servStat.players.online + '/' + servStat.players.max
 
     } catch (err) {
@@ -252,11 +289,11 @@ const refreshServerStatus = async function(fade = false){
     
 }
 
-refreshMojangStatuses()
+//refreshMojangStatuses()
 // Server Status is refreshed in uibinder.js on distributionIndexDone.
 
 // Refresh statuses every hour. The status page itself refreshes every day so...
-let mojangStatusListener = setInterval(() => refreshMojangStatuses(true), 60*60*1000)
+//let mojangStatusListener = setInterval(() => refreshMojangStatuses(true), 60*60*1000)
 // Set refresh rate to once every 5 minutes.
 let serverStatusListener = setInterval(() => refreshServerStatus(true), 300000)
 

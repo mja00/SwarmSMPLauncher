@@ -7,6 +7,14 @@ const ConfigManager = require('./configmanager')
 
 const logger = LoggerUtil.getLogger('DistroManager')
 
+const version = require('../../../package.json').version
+const sanitizedOS = process.platform === 'win32' ? 'Windows' : (process.platform === 'darwin' ? 'Mac' : 'Linux')
+const customRequests = request.defaults({
+    headers: {
+        'User-Agent': "SwarmSMP Launcher/" + version + " (" + sanitizedOS + ")"
+    }
+})
+
 /**
  * Represents the download information
  * for a specific module.
@@ -547,14 +555,14 @@ exports.pullRemote = function(){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
-        const distroURL = 'http://mc.westeroscraft.com/WesterosCraftLauncher/distribution.json'
+        const distroURL = 'https://swarmsmp.com/launcher/distribution.json'
         //const distroURL = 'https://gist.githubusercontent.com/dscalzi/53b1ba7a11d26a5c353f9d5ae484b71b/raw/'
         const opts = {
             url: distroURL,
             timeout: 2500
         }
         const distroDest = path.join(ConfigManager.getLauncherDirectory(), 'distribution.json')
-        request(opts, (error, resp, body) => {
+        customRequests(opts, (error, resp, body) => {
             if(!error){
                 
                 try {

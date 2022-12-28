@@ -1,4 +1,4 @@
-appId: 'swarmsmolauncher'
+appId: 'swarmsmplauncher'
 productName: 'SwarmSMPLauncher Launcher'
 artifactName: '${productName}-setup-${version}.${ext}'
 

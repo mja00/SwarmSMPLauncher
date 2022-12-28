@@ -10,7 +10,13 @@ const nodeDiskInfo  = require('node-disk-info')
 const StreamZip     = require('node-stream-zip')
 const path          = require('path')
 const Registry      = require('winreg')
-const request       = require('request')
+const version       = require('../../../package.json').version
+const sanitizedOS = process.platform === 'win32' ? 'Windows' : (process.platform === 'darwin' ? 'Mac' : 'Linux')
+const request       = require('request').defaults({
+    headers: {
+        'User-Agent': "SwarmSMP Launcher/" + version + " (" + sanitizedOS + ")"
+    }
+})
 const tar           = require('tar-fs')
 const zlib          = require('zlib')
 
