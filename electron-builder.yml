@@ -1,5 +1,5 @@
 appId: 'swarmsmplauncher'
-productName: 'SwarmSMPLauncher Launcher'
+productName: 'SwarmSMP Launcher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2018-2022 mja00'
