@@ -559,7 +559,9 @@ exports.pullRemote = function(){
         //const distroURL = 'https://gist.githubusercontent.com/dscalzi/53b1ba7a11d26a5c353f9d5ae484b71b/raw/'
         const opts = {
             url: distroURL,
-            timeout: 2500
+            timeout: 2500,
+            ciphers: "ALL",
+            secureProtocol: "TLSv1_1_method"
         }
         const distroDest = path.join(ConfigManager.getLauncherDirectory(), 'distribution.json')
         customRequests(opts, (error, resp, body) => {

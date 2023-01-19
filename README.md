@@ -1,6 +1,6 @@
 <p align="center"><img src="./app/assets/images/SealCircle.png" width="150px" height="150px" alt="aventium softworks"></p>
 
-<h1 align="center">SwarmSMPLauncher Launcher</h1>
+<h1 align="center">SwarmSMP Launcher</h1>
 
 
 [<p align="center"><img src="https://img.shields.io/github/actions/workflow/status/mja00/SwarmSMPLauncher/build.yml?branch=master&style=for-the-badge" alt="gh actions">](https://github.com/mja00/SwarmSMPLauncher/actions) [<img src="https://img.shields.io/github/downloads/mja00/SwarmSMPLauncher/total.svg?style=for-the-badge" alt="downloads">](https://github.com/mja00/SwarmSMPLauncher/releases) <img src="https://forthebadge.com/images/badges/winter-is-coming.svg"  height="28px" alt="winter-is-coming"></p>
